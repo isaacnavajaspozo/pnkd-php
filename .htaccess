@@ -1,0 +1,46 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Denegar el acceso directo a la carpeta 'Washington'
+    RewriteCond %{REQUEST_URI} ^/Washington/
+    RewriteRule .* - [F,L]
+    
+    # Restringir el acceso al archivo 'deployer.php'
+    <Files "deployer.php">
+        Order Deny,Allow
+        Deny from all
+    </Files>
+    
+    # Evitar listado de directorios
+    Options -Indexes
+
+    # Bloquear el acceso a archivos de configuración sensibles
+    <FilesMatch "^\.ht">
+        Deny from all
+    </FilesMatch>
+    
+    # Establecer encabezados de seguridad
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Evitar hotlinking de archivos multimedia
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?qultep.com [NC]
+    RewriteRule \.(jpg|jpeg|gif)$ - [NC,F,L]
+    
+    # Las siguientes reglas de reescritura permanecen igual
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+#    RewriteBase /
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+#</IfModule>
+

@@ -1,0 +1,76 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Jacquard+12&display=swap');
+
+    :root {
+       --color-oso: #373737;
+    }
+        
+    *{
+        color:#27262c;
+        text-decoration: none;
+        border: none;
+    }
+        
+    .content{
+        width:500px;
+        margin: 0 auto; 
+    }
+    
+    #dragon{
+        margin-top:90px;
+        width:300px;
+    }
+
+    .fontBear{
+        font-family: "Jacquard 12", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size:70px;
+        color:var(--color-oso);
+    }
+
+    #enlace{
+        color:#1e4dd9;
+    }
+        
+    #enlace:hover{
+        color:#788fd3;
+    }
+        
+    #carpeta{
+        width:15px;
+    }
+        
+    hr{
+        margin:30px 0;
+        width:55%;
+        height: 0.7px;
+        background-color: var(--color-oso);
+        color:var(--color-oso);
+    }
+    
+    input{
+        padding:10px 20px;
+        border: 2px solid;
+    }
+        
+    #boton {
+        display:inline-block;
+        padding:10px 20px;
+        background-color: var(--color-oso);
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size:13px;
+        line-height:10px;
+    }
+        
+    #boton:hover {
+        background-color: var(--color-oso);
+    }
+    
+    #lodge{
+        width:40px;
+    }
+    */
+        

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./App/Public/Src/panzer.jpg">
+    <link rel="icon" type="image/png" href="./srv/public/src/DRAGON.jpg">
     <title>Qultep php</title>
 
     <style>
@@ -17,9 +17,9 @@
     <div class="content">
         <center>
             <br><br><br><br><br><br><br><br><br><br><br>
-            <img src="./App/Public/Src/logo.svg" alt="qultep">
-            <p><?= $data["titulo"];  ?></p>
-            <p><?=  $data[0]["titulo"]; ?></p>
+            <img src="./srv/public/src/DRAGON.png" alt="qultep">
+            <p><?= $data[0]["certificado"];  ?></p>
+            <p><?=  $data[0]["usuario"]; ?></p>
         </center>
     </div>
 </body>

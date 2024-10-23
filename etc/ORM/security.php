@@ -1,5 +1,5 @@
 <?php
-require_once('./Pinkragon/kernel.php');
+require_once('./srv/kernel.php');
 
 session_start();
 

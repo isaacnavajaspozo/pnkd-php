@@ -1,9 +1,9 @@
 <?php
 
 //Definir controladores
-require_once('./App/Controllers/landingPageController.php');
-require_once('./App/Controllers/exampleController.php');
-require_once('./App/Controllers/errorController.php');
+require_once('./srv/controllers/landingPageController.php');
+require_once('./srv/controllers/exampleController.php');
+require_once('./srv/controllers/errorController.php');
 
 //Definir rutas
 Http::get('/', ['controller' => 'LandingPage', 'method' => 'index']);

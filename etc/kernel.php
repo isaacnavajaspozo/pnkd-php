@@ -1,8 +1,7 @@
 <?php
 
-require_once('./Pinkragon/http.php');
-require_once('./App/Routers/web.php');
-
+require_once('./etc/http.php');
+require_once('./srv/routers/web.php');
 
 
 class Kernel {
@@ -10,7 +9,6 @@ class Kernel {
     public function __construct() {
         $this->env();
         $this->errores();
-
     }
 
     // Ejecutar la aplicación y la lógica del router
@@ -49,13 +47,13 @@ class Kernel {
     // función para cargar helpers
     public function loadHelper($ruta) {
         if ($ruta) {
-            require_once('./Dragon/ORM/Helpers/' . $ruta);
+            require_once('./etc/ORM/helpers/' . $ruta);
         }
     }
 
     // función para la funcionalidad del .env
     public function env() {
-        $env_file = __DIR__ . '/../.env';
+        $env_file = './tmp/.env';
         if (file_exists($env_file)) {
             $lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
             foreach ($lines as $line) {
@@ -103,7 +101,7 @@ class Kernel {
             set_exception_handler([$this, 'manejar_excepciones']);
             register_shutdown_function([$this, 'manejar_errores_fatales']);
 
-            require_once('./Pinkragon/ORM/Helpers/debug.php');
+            require_once('./etc/ORM/helpers/debug.php');
         }
     }
 

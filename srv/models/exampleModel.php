@@ -1,11 +1,12 @@
 <?php
 
-require_once './Pinkragon/ORM/db.php';
+require_once './etc/ORM/db.php';
 
 class ExampleModel extends db{
     
     public function __construct() {
         parent::__construct();
+        
     }
     
     public function index() {
@@ -24,3 +25,4 @@ class ExampleModel extends db{
         return $id;
     }
 }
+

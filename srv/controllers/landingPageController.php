@@ -1,7 +1,7 @@
 <?php
 
-require_once './Pinkragon/ORM/db.php';
-require_once './Pinkragon/kernel.php';
+require_once './etc/ORM/db.php';
+require_once './etc/kernel.php';
 
 
 class LandingPage extends db {
@@ -13,7 +13,8 @@ class LandingPage extends db {
 
     public function index() {
         $data['version'] = getenv('VERSION');
-        $data['kernelFile'] = file_exists('./Pinkragon/kernel.php') ? true : false;
+        $data['kernelFile'] = file_exists('./etc/kernel.php') ? true : false;
+        $data['ORMDir'] = is_dir('./etc/ORM') ? true : false;
         $this->view('landingPage.php', $data);
     }
 

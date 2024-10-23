@@ -1,7 +1,7 @@
 <?php
 
-require_once('./Pinkragon/ORM/Helpers/tokenEncryption.php');
-require_once('./Pinkragon/kernel.php');
+require_once('./etc/ORM/helpers/tokenEncryption.php');
+require_once('./etc/kernel.php');
 
 class db extends kernel {
     private $conn;
@@ -22,7 +22,6 @@ class db extends kernel {
         //$encryptedPassword = $encryptionHelper->encrypt($password);
 
         $this->conn = new mysqli($host, $username, $decryptPassword, $database);
-
 
         if ($this->conn->connect_error) {
             die("Error de conexión: " . $this->conn->connect_error);
@@ -50,22 +49,6 @@ class db extends kernel {
 
         return $this->conn->affected_rows > 0 ? $this->conn->affected_rows : $this->conn->insert_id;
     }
-
-    public function view($viewRoute, $data = NULL) {
-        require_once('./App/Public/Views/' . $viewRoute);
-
-        if ($data) {
-            $data = array();
-            extract($data);
-        }
-    }
-    //Uso: $view = $db->view('index.php', $user);
-    
-    public function model($modelRoute) {
-        require_once('./App/Models/' . $modelRoute);
-
-    }
-    //Uso: $view = $db->controller('index.php', $user);
 
     public function select($columns, $table, $options = NULL) {
         // Preparar la consulta
@@ -104,6 +87,23 @@ class db extends kernel {
         return $this->executeNoQuery($query);
     }
     //Uso: $rows_affected = $db->delete("tabla", "WHERE columna = 'valor'");
+    
+    ###############################################################################
+    public function view($viewRoute, $data = NULL) {
+        require_once('./srv/public/views/' . $viewRoute);
+
+        if ($data) {
+            $data = array();
+            extract($data);
+        }
+    }
+    //Uso: $view = $db->view('index.php', $user);
+    
+    public function model($modelRoute) {
+        require_once('./srv/models/' . $modelRoute);
+        
+    }
+    //Uso: $view = $db->controller('index.php', $user);
 
 }
 

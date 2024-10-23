@@ -1,5 +1,5 @@
 <?php
-require_once './Pinkragon/ORM/db.php';
+require_once './etc/ORM/db.php';
 
 class ExampleController extends db {
 
@@ -20,15 +20,19 @@ class ExampleController extends db {
     }
     
     public function test() {
-        $data = $this->model('exampleModel.php');
+        $this->model('exampleModel.php');
+        $exampleModel = new exampleModel;
+        $data = $exampleModel->onemethod($id);
         
         // podemos utilizar el helper debug en los modelos, vistas y controladores si tenemos el error en true desde .env
         Debug::kill($data);
     }
 
     public function getUser($id) {
-        $data = $this->model('exampleModel.php');
-        
+        $this->model('exampleModel.php');
+        $exampleModel = new exampleModel;
+        $data = $exampleModel->getUserById($id);
+
         if ($data) {
             echo "Usuario encontrado: <br>";
             $this->view('index.php', $data);

@@ -2,8 +2,8 @@
     RewriteEngine On
     RewriteBase /
     
-    # Denegar el acceso directo a la carpeta 'Washington'
-    RewriteCond %{REQUEST_URI} ^/Washington/
+    # Denegar el acceso directo a la carpeta 
+    RewriteCond %{REQUEST_URI} ^/etc/
     RewriteRule .* - [F,L]
     
     # Restringir el acceso al archivo 'deployer.php'
@@ -26,7 +26,7 @@
     
     # Evitar hotlinking de archivos multimedia
     RewriteCond %{HTTP_REFERER} !^$
-    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?qultep.com [NC]
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?isaacnavajaspozo.com [NC]
     RewriteRule \.(jpg|jpeg|gif)$ - [NC,F,L]
     
     # Las siguientes reglas de reescritura permanecen igual
